@@ -12,5 +12,5 @@ targetCompatibility = 1.8
 
 dependencies {
     compile "joda-time:joda-time:2.2"
-    compile group: 'org.junit', name: 'junit5-engine', version: '5.0.0-ALPHA'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
 }
