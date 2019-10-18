@@ -1,11 +1,34 @@
 version:  '3'
 
 services:
+  mongo:
+    image: mongo
+    container_name: mongoDB
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongoExpress
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+
   web:
+    build: .
+    depends_on:
+      - mongo
+      - mongo-express
     image: ldudek/test:latest
     container_name: TestApp
     restart: always
     ports:
       - "8083:8080"
-
-
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example

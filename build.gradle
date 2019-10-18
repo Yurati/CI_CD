@@ -28,8 +28,8 @@ dependencies {
 group = 'ldudek'
 
 bootJar {
-    baseName = 'test'
-    version =  '0.1.0'
+    archiveBaseName = 'test'
+    archiveVersion =  '0.1.0'
 }
 
 
