@@ -1,0 +1,11 @@
+version:  '3'
+
+services:
+  web:
+    image: ldudek/test:latest
+    container_name: TestApp
+    restart: always
+    ports:
+      - "8083:8080"
+
+
