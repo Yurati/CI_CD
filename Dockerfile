@@ -1,6 +1,7 @@
 FROM openjdk:8-jdk-alpine
 VOLUME /tmp
-WORKDIR /
-ADD build/libs/test-1.0.0.jar test-1.0.0.jar
-EXPOSE 8080
-CMD java - jar test-1.0.0.jar
+ARG DEPENDENCY=/build/dependency
+COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY ${DEPENDENCY}/META-INF /app/META-INF
+COPY ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT ["java","-cp","app:app/lib/*","docker.Application"]
