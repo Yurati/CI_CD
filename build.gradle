@@ -29,7 +29,7 @@ group = 'ldudek'
 
 bootJar {
     archiveBaseName = 'test'
-    archiveVersion =  '0.1.0'
+    archiveVersion =  '1.0.0'
 }
 
 
