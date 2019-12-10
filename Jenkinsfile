@@ -32,7 +32,7 @@ node {
     
     stage('Run container on dev server'){
         def dockerRegistryIP = '18.130.193.246:5000'
-        def dockerRun = "docker run -p 8080:8080 -d --name App ${dockerRegistryIP}/${tag}"
+        def dockerRun = "docker run -p 8080:8080 -d --name App ${dockerRegistryIP}/my-app"
         sshagent(['dev-server']) {
             withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHunPassword')]) {
                         def loginCmd = "docker login -u ldudek -p ${dockerHunPassword}"
