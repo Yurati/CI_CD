@@ -31,7 +31,7 @@ node {
     }
     
     stage('Run container on dev server'){
-        def dockerRun = "docker run -p 8080:8080 -d --name App ${dockerRegistryIP}:5000/my-app"
+        def dockerRun = "docker run -p 8080:8080 -d --name App localhost:5000/my-app"
         sshagent(['dev-server']) {
             sh "ssh -o StrictHostKeyChecking=no ec2-user@${serverIP} ${dockerRun}"
         }
