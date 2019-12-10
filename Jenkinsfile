@@ -2,7 +2,7 @@ node {
     def tag = 'localhost:5000/my-app'
 
     stage('Git checkout'){
-        git credentialsId: 'ab374df5-aa7f-4986-99ca-29347cb0a646', url: 'https://github.com/Yurati/IDK'
+        git credentialsId: 'ab374df5-aa7f-4986-99ca-29347cb0a646', url: 'https://github.com/Yurati/CI_CD'
     }
     
     stage('Gradle package'){
@@ -32,9 +32,9 @@ node {
     
     stage('Run container on dev server'){
         def dockerRegistryIP = '19.2.4.4:5000'
-        def dockerRun = "docker run -p 8080:8080 -d --name AppDemo ${dockerRegistryIP}${tag}"
+        def dockerRun = "docker run -p 8080:8080 -d --name App ${dockerRegistryIP}${tag}"
         sshagent(['dev-server']) {
-            sh "ssh -o StrictHostKeyChecking=no ec2-user@3.10.244.222 ${dockerRun}"
+            sh "ssh -o StrictHostKeyChecking=no ec2-user@3.9.10.129 ${dockerRun}"
         }
     }
 }
