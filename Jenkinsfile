@@ -1,7 +1,7 @@
 node {
     def imageName = 'ldudek/app:1.0.0'
     def tag = 'localhost:5000/my-app'
-    def serverIP = ''
+    def serverIP = '52.56.235.149'
     def dockerRegistryIP = '18.130.199.0'
 
     stage('Git checkout'){
