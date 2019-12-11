@@ -31,7 +31,7 @@ node {
     
     stage('Run container on dev server'){
         def composePath = '/srv/io/docker-compose.yml'
-        def dockerRun = "docker-compose -f ${composePath} up"
+        def dockerRun = "docker-compose -f ${composePath} up -d"
         sshagent(['dev-server']) {
             sh "ssh -o StrictHostKeyChecking=no ec2-user@${serverIP} ${dockerRun}"
         }
