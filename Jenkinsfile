@@ -1,8 +1,7 @@
 node {
     def imageName = 'ldudek/app:1.0.0'
     def tag = 'localhost:5000/my-app'
-    def serverIP = '52.56.235.149'
-    def dockerRegistryIP = '18.130.199.0'
+    def serverIP = '3.10.198.38'
 
     stage('Git checkout'){
         git credentialsId: 'ab374df5-aa7f-4986-99ca-29347cb0a646', url: 'https://github.com/Yurati/CI_CD'
@@ -31,7 +30,8 @@ node {
     }
     
     stage('Run container on dev server'){
-        def dockerRun = "docker run -p 8080:8080 -d --name App ${dockerRegistryIP}:5000/my-app"
+        def composePath = '/srv/io/docker-compose.yml'
+        def dockerRun = "docker-compose -f ${composePath} up"
         sshagent(['dev-server']) {
             sh "ssh -o StrictHostKeyChecking=no ec2-user@${serverIP} ${dockerRun}"
         }
