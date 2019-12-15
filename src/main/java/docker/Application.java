@@ -11,7 +11,7 @@ public class Application {
 
     @RequestMapping("/")
     public String home() {
-        return "IO_CICD_2019";
+        return "IO_CICD_2019!";
     }
 
     public static void main(String[] args) {
