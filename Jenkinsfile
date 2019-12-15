@@ -1,5 +1,5 @@
 node {
-    def imageName = 'engineering/app:1.0.0'
+    def imageName = 'ldudek/app:1.0.0'
     def tag = 'localhost:5000/my-app'
     def serverIP = '3.11.77.88'
 
