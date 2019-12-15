@@ -1,7 +1,7 @@
 node {
     def imageName = 'ldudek/app:1.0.0'
     def tag = 'localhost:5000/my-app'
-    def serverIP = '3.10.198.38'
+    def serverIP = '3.11.77.88'
 
     stage('Git checkout'){
         git credentialsId: 'ab374df5-aa7f-4986-99ca-29347cb0a646', url: 'https://github.com/Yurati/CI_CD'
