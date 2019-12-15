@@ -25,7 +25,7 @@ dependencies {
     testCompile"org.springframework.boot:spring-boot-starter-test"
 }
 
-group = 'engineering'
+group = 'io'
 
 bootJar {
     archiveBaseName = 'test'
