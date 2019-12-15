@@ -26,6 +26,6 @@ public class HelloControllerTest {
     public void sayHello() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("IO_2019")));
+                .andExpect(content().string(equalTo("IO_CICD_2019")));
     }
 }
