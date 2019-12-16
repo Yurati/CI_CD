@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Application {
     @RequestMapping("/")
     public String home() {
-        return "Hello Docker World";
+        return "IO_CICD_2019!";
     }
 
     public static void main(String[] args) {
