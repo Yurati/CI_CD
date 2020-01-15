@@ -21,7 +21,7 @@ node {
     stage('Image push'){
         sh "docker tag ${imageName} ${tag}"
         sh "docker push ${tag}"
-        sh "docker rmi -f \$(docker images |grep 'io/app')"
+        sh "docker rmi -f \$(docker images |grep 'io/app') -d"
     }
     
     stage('Deploy approval'){
