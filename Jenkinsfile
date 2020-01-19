@@ -29,7 +29,8 @@ node {
             input message: 'Deploy app to dev?', ok: 'Yes'
         }
     }
-    
+
+
     stage('Run container on dev server'){
         def composePath = '/srv/io/docker-compose.yml'
         def dockerRun = "docker-compose -f ${composePath} up -d"
